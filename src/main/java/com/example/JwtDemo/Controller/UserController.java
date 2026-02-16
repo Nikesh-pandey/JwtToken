@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.example.JwtDemo.DTO.LoginRequestDto;
 import com.example.JwtDemo.DTO.jwtDto;
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/auth")
 public class UserController {
@@ -25,7 +26,11 @@ public ResponseEntity<String> postData(@RequestBody  RegisterRequestDto register
 
     @PostMapping("/login")
     public jwtDto login(@RequestBody LoginRequestDto loginRequestDto) {
+        System.out.println("Printed");
+
         return userService.getLogin(loginRequestDto);
+
+
     }
 
     @PostMapping("/getData")
